@@ -6,12 +6,12 @@ on:
     inputs:
       os_list:
         # which systems to run the tests on
-        default: ${{ toJson('["ubuntu-latest", "macos-latest"]') }}
+        default: '["ubuntu-latest", "macos-latest"]'
         type: string
         required: false
       python-versions:
         description: 'The python versions to use'
-        default: ${{ toJson('["3.10", "3.11", "3.12"]')}}
+        default: '["3.10", "3.11", "3.12"]'
         required: false
         type: string
       pytest_cov_dir:
@@ -27,8 +27,9 @@ jobs:
   run-python-tests:
     strategy:
       matrix:
-        python-version: ${{ inputs.python-versions }}
-        os: "${{ inputs.os_list }}"
+        python-version: ${{ fromJson(inputs.python-versions) }}
+        os: "${{ fromJson(inputs.os_list) }}"
+
     runs-on: ${{ matrix.os }}
 
 
