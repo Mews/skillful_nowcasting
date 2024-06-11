@@ -21,11 +21,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-    
-      - name: Setup pytest arguments
-        run: |
-          echo "Will be using $pytest_cpus cpu cores to run tests"
-          export xdist_args="-n $pytest_cpus" >> $GITHUB_ENV
 
       - name: Run tests
-        run: echo $xdist_args
+        run: |
+          export xxdist_args="-n $pytest_cpus"
+          echo $xdist_args
