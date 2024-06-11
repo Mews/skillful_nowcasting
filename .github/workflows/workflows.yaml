@@ -29,7 +29,7 @@ jobs:
 
     strategy:
       matrix:
-        os: ${{ fromJson(inputs.os_list) }}
+        os: ${{ inputs.os_list }}
         python-version: ["3.10", "3.11", "3.12"]
 
     steps:
