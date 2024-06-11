@@ -11,7 +11,7 @@ on:
         required: false
       python-versions:
         description: 'The python versions to use'
-        default: "['3.10', '3.11', '3.12']"
+        default: '["3.10", "3.11", "3.12"]'
         required: false
         type: string
       pytest_cov_dir:
@@ -27,8 +27,8 @@ jobs:
   build:
     strategy:
       matrix:
-        os: "${{ fromJSON(inputs.os-list) }}"
-        python-version: "${{ fromJSON(inputs.python-versions) }}"
+        os: '${{ fromJSON(inputs.os-list) }}'
+        python-version: '${{ fromJSON(inputs.python-versions) }}'
     
     runs-on: ${{ matrix.os }}
 
