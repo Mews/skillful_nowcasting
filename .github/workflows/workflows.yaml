@@ -3,19 +3,14 @@ name: Run tests
 on:
   push:
 
-env:
-  PYTHON_VERSIONS: '["3.10", "3.11", "3.12"]'
-  OS_LIST: '["ubuntu-latest", "macos-latest"]'
-
 jobs:
   run-python-tests:
     strategy:
       matrix:
-        python-version: $PYTHON_VERSIONS
-        os: $OS_LIST
+        python-version: ["3.10", "3.11", "3.12"] # The python versions to run tests on
+        os: ["ubuntu-latest", "macos-latest"]
 
     runs-on: ${{ matrix.os }}
-
 
     steps:
       - uses: actions/checkout@v4
