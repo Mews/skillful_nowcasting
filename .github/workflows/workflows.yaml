@@ -4,7 +4,7 @@ on:
   push:
   workflow_call:
     inputs:
-      os-list:
+      os_list:
         # which systems to run the tests on
         default: '["ubuntu-latest", "macos-latest"]'
         type: string
@@ -24,13 +24,13 @@ on:
         default: '2'
 
 jobs:
-  build:
+  run-python-tests:
     strategy:
       matrix:
-        os: '${{ fromJSON(inputs.os-list) }}'
-        python-version: '${{ fromJSON(inputs.python-versions) }}'
-    
+        python-version: ${{ fromJson(inputs.python-versions) }}
+        os: "${{ fromJSON(inputs.os_list) }}"
     runs-on: ${{ matrix.os }}
+
 
     steps:
       - uses: actions/checkout@v4
