@@ -6,12 +6,12 @@ on:
     inputs:
       os_list:
         # which systems to run the tests on
-        default: '["ubuntu-latest", "macos-latest"]'
+        default: ${{ toJson('["ubuntu-latest", "macos-latest"]') }}
         type: string
         required: false
       python-versions:
         description: 'The python versions to use'
-        default: '["3.10", "3.11", "3.12"]'
+        default: ${{ toJson('["3.10", "3.11", "3.12"]')}}
         required: false
         type: string
       pytest_cov_dir:
