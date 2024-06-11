@@ -27,8 +27,8 @@ jobs:
   run-python-tests:
     strategy:
       matrix:
-        python-version: ${{ fromJson(inputs.python-versions) }}
-        os: "${{ fromJSON(inputs.os_list) }}"
+        python-version: ${{ inputs.python-versions }}
+        os: "${{ inputs.os_list }}"
     runs-on: ${{ matrix.os }}
 
 
