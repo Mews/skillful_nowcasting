@@ -4,11 +4,11 @@ on:
     push:
 
 env:
-    PYTHON-VERSIONS: '["3.10", "3.11", "3.12"]'
+    PYTHON_VERSIONS: '["3.10", "3.11", "3.12"]'
 
 jobs:
     build:
         runs-on: ubuntu-latest
         steps:
             - name: Test
-              run: echo "$PYTHON-VERSIONS"
+              run: echo "$PYTHON_VERSIONS"
